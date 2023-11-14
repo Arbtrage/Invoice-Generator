@@ -5,8 +5,9 @@ import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Card from 'react-bootstrap/Card';
-import InvoiceItem from './InvoiceItem';
-import InvoiceModal from './InvoiceModal';
+// import InvoiceItem from '../components/invoice/InvoiceItem';
+// import InvoiceModal from '../components/invoice/InvoiceModal';
+import { InvoiceItem,InvoiceModal} from '../components/index'
 import InputGroup from 'react-bootstrap/InputGroup';
 
 class InvoiceForm extends React.Component {
@@ -37,8 +38,8 @@ class InvoiceForm extends React.Component {
         id: 0,
         name: '',
         description: '',
-        price: '1.00',
-        quantity: 1
+        price: '0.00',
+        quantity: 0
       }
     ];
     this.editField = this.editField.bind(this);
@@ -56,9 +57,9 @@ class InvoiceForm extends React.Component {
     var items = {
       id: id,
       name: '',
-      price: '1.00',
+      price: '0.00',
       description: '',
-      quantity: 1
+      quantity: 0
     }
     this.state.items.push(items);
     this.setState(this.state.items);
