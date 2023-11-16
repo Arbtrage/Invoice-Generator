@@ -19,10 +19,9 @@ const router = createBrowserRouter([
 class App extends Component {
   render() {
     return (
-      <div className="App d-flex flex-column align-items-center justify-content-center w-100">
+      <div className="App d-flex flex-column align-items-center w-100">
         <Container>
           <RouterProvider router={router} />
-          {/* <InvoiceForm/> */}
         </Container>
       </div>
     );

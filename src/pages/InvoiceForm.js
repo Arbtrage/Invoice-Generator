@@ -5,8 +5,6 @@ import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Card from 'react-bootstrap/Card';
-// import InvoiceItem from '../components/invoice/InvoiceItem';
-// import InvoiceModal from '../components/invoice/InvoiceModal';
 import { InvoiceItem,InvoiceModal} from '../components/index'
 import InputGroup from 'react-bootstrap/InputGroup';
 
@@ -123,7 +121,7 @@ class InvoiceForm extends React.Component {
   };
   closeModal = (event) => this.setState({isOpen: false});
   render() {
-    return (<Form onSubmit={this.openModal}>
+    return (<Form onSubmit={this.openModal} className='justify-content-center'>
       <Row>
         <Col md={8} lg={9}>
           <Card className="p-4 p-xl-5 my-3 my-xl-4">
