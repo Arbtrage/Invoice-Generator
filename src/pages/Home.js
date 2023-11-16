@@ -21,6 +21,9 @@ const Home = () => {
     navigate("/create-invoice");
   };
 
+  const editInvoice = (id) => {
+    navigate(`/edit-invoice/${id}`);
+  }
   const invoices = useSelector(selectInvoice);
 
   return (
@@ -46,6 +49,9 @@ const Home = () => {
               <td>{invoice.info.billTo}</td>
               <td>{invoice.info.billFrom}</td>
               <td>{invoice.info.dateOfIssue}</td>
+              <Button variant="outline-info" className="m-1" onClick={()=>editInvoice(invoice.info.id)}>Edit</Button>{' '}
+
+              {/* <Button variant="danger" onClick={editInvoice(invoice.info)}>Edit</Button> */}
             </tr>
           ))}
         </tbody>

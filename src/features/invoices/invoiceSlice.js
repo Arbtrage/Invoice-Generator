@@ -1,5 +1,5 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import { addInvoice, fetchInvoices } from "./invoiceAPI";
+import { addInvoice, fetchInvoices, modifyInvoice } from "./invoiceAPI";
 
 const initialState = {
   invoices: [],
@@ -20,6 +20,12 @@ export const fetchAsync = createAsyncThunk(
   }
 );
 
+export const modifyAsync = createAsyncThunk("invoices/modifyInvoice", async (data) => {
+  const response = await modifyInvoice(data);
+  console.log(response);
+  return response;
+})
+
 export const invoiceSlice = createSlice({
   name: "invoices",
   initialState,
@@ -33,6 +39,10 @@ export const invoiceSlice = createSlice({
         state.status = "loading";
       })
       .addCase(fetchAsync.fulfilled, (state, action) => {
+        state.status = "idle";
+        state.invoices = action.payload;
+      })
+      .addCase(modifyAsync.fulfilled, (state,action) => {
         state.status = "idle";
         state.invoices = action.payload;
       })
