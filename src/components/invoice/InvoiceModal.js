@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
@@ -9,7 +9,7 @@ import { BiPaperPlane, BiCloudDownload } from "react-icons/bi";
 import html2canvas from "html2canvas";
 import jsPDF from "jspdf";
 import { useDispatch } from "react-redux";
-import { addAsync,modifyAsync } from "../../features/invoices/invoiceSlice";
+import { addAsync,modifyAsync,copyAsync } from "../../features/invoices/invoiceSlice";
 
 const GenerateInvoice = () => {
   html2canvas(document.querySelector("#invoiceCapture")).then((canvas) => {
@@ -38,7 +38,7 @@ const InvoiceModal = ({
   items,
   subTotal,
   taxAmmount,
-  discountAmmount,
+  discountAmmount
 }) => {
   const dispatch = useDispatch();
   const addInvoice = (data) => {
@@ -46,6 +46,9 @@ const InvoiceModal = ({
   };
   const modifyInvoice = (data) => {
     dispatch(modifyAsync(data));
+  }
+  const copyInvoice = (data) => {
+    dispatch(copyAsync(data));
   }
   return (
     <div>
@@ -170,12 +173,12 @@ const InvoiceModal = ({
         <div className="pb-4 px-4">
           <Row>
             <Col md={6}>
-              {type ? (
+              {type===3 ? (
                 <Button
                   variant="primary"
                   className="d-block w-100"
                   onClick={() =>
-                    modifyInvoice({
+                    copyInvoice({
                       info,
                       currency,
                       total,
@@ -190,9 +193,29 @@ const InvoiceModal = ({
                     style={{ width: "15px", height: "15px", marginTop: "-3px" }}
                     className="me-2"
                   />
-                  Modify Invoice
+                  Copy Invoice
                 </Button>
-              ) : (
+              ) : type===1?(<Button
+                variant="primary"
+                className="d-block w-100"
+                onClick={() =>
+                  modifyInvoice({
+                    info,
+                    currency,
+                    total,
+                    items,
+                    subTotal,
+                    taxAmmount,
+                    discountAmmount,
+                  })
+                }
+              >
+                <BiPaperPlane
+                  style={{ width: "15px", height: "15px", marginTop: "-3px" }}
+                  className="me-2"
+                />
+                Modify Invoice
+              </Button>) :(
                 <Button
                   variant="primary"
                   className="d-block w-100"

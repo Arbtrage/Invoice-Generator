@@ -1,5 +1,11 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import { addInvoice, fetchInvoices, modifyInvoice } from "./invoiceAPI";
+import {
+  addInvoice,
+  fetchInvoices,
+  modifyInvoice,
+  copyInvoice,
+  deleteInvoice,
+} from "./invoiceAPI";
 
 const initialState = {
   invoices: [],
@@ -15,16 +21,28 @@ export const fetchAsync = createAsyncThunk(
   "invoices/fetchInvoices",
   async () => {
     const response = await fetchInvoices();
-    console.log(response);
     return response;
   }
 );
 
-export const modifyAsync = createAsyncThunk("invoices/modifyInvoice", async (data) => {
-  const response = await modifyInvoice(data);
-  console.log(response);
+export const deleteAsync = createAsyncThunk("invoices/deleteInvoice", async (id) => {
+  const response = await deleteInvoice(id);
   return response;
 })
+export const copyAsync = createAsyncThunk(
+  "invoices/copyInvoice",
+  async (data) => {
+    const response = await copyInvoice(data);
+    return response;
+  }
+);
+export const modifyAsync = createAsyncThunk(
+  "invoices/modifyInvoice",
+  async (data) => {
+    const response = await modifyInvoice(data);
+    return response;
+  }
+);
 
 export const invoiceSlice = createSlice({
   name: "invoices",
@@ -42,7 +60,15 @@ export const invoiceSlice = createSlice({
         state.status = "idle";
         state.invoices = action.payload;
       })
-      .addCase(modifyAsync.fulfilled, (state,action) => {
+      .addCase(modifyAsync.fulfilled, (state, action) => {
+        state.status = "idle";
+        state.invoices = action.payload;
+      })
+      .addCase(deleteAsync.fulfilled, (state, action) => {
+        state.status = "idle";
+        state.invoices = action.payload;
+      })
+      .addCase(copyAsync.fulfilled, (state, action) => {
         state.status = "idle";
         state.invoices = action.payload;
       })

@@ -13,9 +13,10 @@ class InvoiceForm extends React.Component {
     super(props);
     const { invoiceData: data } = this.props;
     if (data) {
-      const { info, items, total, subTotal } = data;
+      const { info, items, total, subTotal,currency } = data;
       this.state = {
         id: info.id,
+        currency:currency,
         currentDate: info.currentDate,
         invoiceNumber: info.invoiceNumber,
         dateOfIssue: info.dateOfIssue,
@@ -359,7 +360,7 @@ class InvoiceForm extends React.Component {
                 Review Invoice
               </Button>
               <InvoiceModal
-                type={this.props.invoiceData ? true : false}
+                type={this.props.invoiceData ? 1 : 2}
                 showModal={this.state.isOpen}
                 closeModal={this.closeModal}
                 info={this.state}
