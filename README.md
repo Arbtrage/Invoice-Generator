@@ -49,3 +49,7 @@ Insert gif or link to demo
 
 **Client:** React, Redux, TailwindCSS
 
+
+## License
+
+[MIT](LICENSE) © 2023 Sayantan
