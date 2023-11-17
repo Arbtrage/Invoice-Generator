@@ -1,4 +1,5 @@
 
+![Invoice-Generator](https://socialify.git.ci/Arbtrage/Invoice-Generator/image?description=1&descriptionEditable=Invoice%20Management%20Application&language=1&name=1&owner=1&pattern=Solid&theme=Dark)
 # Invoice Generator
 
 An Invoice creator project built with React. Add itemized items, configure quantity, prices, tax rates and discounts. Download Invoice as PDFs to your device. Uses jspdf-react to capture the data from the modal and covert it from canvas -> pdf.
