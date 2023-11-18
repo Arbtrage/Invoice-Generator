@@ -9,7 +9,9 @@ import { BiPaperPlane, BiCloudDownload } from "react-icons/bi";
 import html2canvas from "html2canvas";
 import jsPDF from "jspdf";
 import { useDispatch } from "react-redux";
-import { addAsync,modifyAsync,copyAsync } from "../../features/invoices/invoiceSlice";
+import { addAsync, modifyAsync, copyAsync } from "../../features/invoices/invoiceSlice";
+import {useNavigate} from 'react-router-dom';
+
 
 const GenerateInvoice = () => {
   html2canvas(document.querySelector("#invoiceCapture")).then((canvas) => {
@@ -40,15 +42,17 @@ const InvoiceModal = ({
   taxAmmount,
   discountAmmount
 }) => {
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const addInvoice = (data) => {
-    dispatch(addAsync(data));
+    dispatch(addAsync({data, navigate}));
   };
   const modifyInvoice = (data) => {
-    dispatch(modifyAsync(data));
+    console.log("object")
+    dispatch(modifyAsync({data, navigate}));
   }
   const copyInvoice = (data) => {
-    dispatch(copyAsync(data));
+    dispatch(copyAsync({data, navigate}));
   }
   return (
     <div>

@@ -8,7 +8,7 @@ export async function addInvoice(data) {
 
   invoices.push(data);
   localStorage.setItem("state", JSON.stringify(invoices));
-  return { message: "Old object modified" };
+  return invoices;
 }
 
 export async function fetchInvoices() {
@@ -24,7 +24,7 @@ export async function modifyInvoice(data) {
   );
   updatedInvoices.push(data);
   localStorage.setItem("state", JSON.stringify(updatedInvoices));
-  return { message: "Done" };
+  return updatedInvoices;
 }
 
 export async function getInvoice(id) {
