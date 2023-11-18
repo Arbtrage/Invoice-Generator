@@ -27,11 +27,6 @@ npm install
 npm start / npm run build
 ```
     
-## Demo
-
-Insert gif or link to demo
-
-
 ## ToDo
 
 ### To-Do
@@ -43,7 +38,13 @@ Insert gif or link to demo
 - [ ] Improve the UI
 ## Screenshots
 
-![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+![image](https://github.com/Arbtrage/Invoice-Generator/assets/100552235/b2caf081-2134-4023-836c-c827779841d6)
+![image](https://github.com/Arbtrage/Invoice-Generator/assets/100552235/6e1f08ac-3a56-402f-ab84-5b8f6dcbe2cf)
+![image](https://github.com/Arbtrage/Invoice-Generator/assets/100552235/aa628da3-5fd2-4cc4-a710-5fa6cd45aeba)
+![image](https://github.com/Arbtrage/Invoice-Generator/assets/100552235/a3f5fce4-d76e-443c-86f8-c6c81a36ee26)
+![image](https://github.com/Arbtrage/Invoice-Generator/assets/100552235/8994acbf-9fe1-4fd0-8a95-924100beb3cf)
+![image](https://github.com/Arbtrage/Invoice-Generator/assets/100552235/940dc699-2669-444a-8bae-ac5e0304fb75)
+
 
 
 ## Tech Stack
